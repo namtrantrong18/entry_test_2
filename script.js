@@ -8,13 +8,16 @@ function getArray(n) {
         var number = Math.floor(Math.random() * n + 1)
         arr.push(number)
     }
-    return arr;
+    return arr
 }
 
 generateBtn.onclick = async function() {
-    var numberInput = document.querySelector('#number').value;
-    var arrayResult = getArray(numberInput);
-    result.innerHTML = `Result: [ ${arrayResult} ]`
+    var regex = /^\d+$/
+    var numberInput = document.querySelector('#number').value
+    if(regex.test(numberInput)) {
+        var arrayResult = getArray(numberInput);
+        result.innerHTML = `Result: [ ${arrayResult} ]`
+    } else {
+        result.innerHTML = ` `
+    }
 }
-
-
